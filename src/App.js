@@ -1,9 +1,10 @@
+import { Login } from "./Components/Login";
 import "./styles.css";
 
 export default function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <Login />
     </div>
   );
 }
