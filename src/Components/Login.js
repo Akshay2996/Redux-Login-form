@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../features/userSlice";
 import "./Login.css";
 
 export function Login() {
@@ -6,9 +8,24 @@ export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(
+      login({
+        name: name,
+        email: email,
+        password: password,
+        loggedIn: true
+      })
+    );
+  };
+
   return (
     <div className="login">
-      <form className="login__form">
+      <form className="login__form" onSubmit={handleSubmit}>
         <h1>
           Login Form
           <span role="img" aria-label="Door emoji">
